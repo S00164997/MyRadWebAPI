@@ -19,6 +19,7 @@
 
         <Button Command="{Binding RegisterCommand}"
                 Text="Register"/>
+        <Label Text="{Binding Message}"/>
     </StackLayout>
     
 </ContentPage>
