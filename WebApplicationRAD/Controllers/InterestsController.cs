@@ -17,10 +17,21 @@ namespace WebApplicationRAD.Controllers
     {
         private InterestsContext db = new InterestsContext();
 
+        // GET: api/Interests/ForCurrentUser
+        [Authorize]
+        [Route("api/Interests/ForCurrentUser")]
+        public IQueryable<Interest> GetInterestsForCurrentUser()
+        {
+            string userId = User.Identity.GetUserId();
+            return db.Interests.Where(interest => interest.UserId == userId);
+        }
+
+
         // GET: api/Interests
         [Authorize]
         public IQueryable<Interest> GetInterests()
         {
+            string userId = User.Identity.GetUserId();
             return db.Interests;
         }
 
@@ -51,6 +62,13 @@ namespace WebApplicationRAD.Controllers
             if (id != interest.Id)
             {
                 return BadRequest();
+            }
+
+            string userId = User.Identity.GetUserId();
+
+            if (userId != interest.UserId)
+            {
+                return StatusCode(HttpStatusCode.Conflict);
             }
 
             db.Entry(interest).State = EntityState.Modified;
@@ -101,6 +119,11 @@ namespace WebApplicationRAD.Controllers
             if (interest == null)
             {
                 return NotFound();
+            }
+            string userId = User.Identity.GetUserId();
+            if (userId != interest.UserId)
+            {
+                return StatusCode(HttpStatusCode.Conflict);
             }
 
             db.Interests.Remove(interest);
