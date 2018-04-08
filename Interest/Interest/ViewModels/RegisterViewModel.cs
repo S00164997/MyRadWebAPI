@@ -1,4 +1,5 @@
-﻿using Interest.Services;
+﻿using Interest.Helpers;
+using Interest.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +17,12 @@ namespace Interest.ViewModels
     {
         private readonly ApiServices _apiServices = new ApiServices();
 
-        public string Email { get; set; }
+        public string Username { get; set; }
 
         public string Password { get; set; }
 
         public string ConfirmPassword { get; set; }
+
         public string Message { get; set; }
 
         public ICommand RegisterCommand
@@ -28,18 +30,23 @@ namespace Interest.ViewModels
             get
             {
                 
-                return new Command(async() =>
+                return new Command(async () =>
                 {
-                    var isSuccess = await _apiServices.RegisterAsync(Email, Password, ConfirmPassword);
+                    var isSuccess = await _apiServices.RegisterAsync
+                    (Username, Password, ConfirmPassword);//.ConfigureAwait(false);
 
+                    Settings.Username = Username;
+                    Settings.Password = Password;
+                    
                     System.Diagnostics.Debug.WriteLine("neh");
                     if (isSuccess){
-                        System.Diagnostics.Debug.WriteLine("Here");
+                       // System.Diagnostics.Debug.WriteLine("Here");
+                        //MessagingCenter.Send(this, "MyAlertName", "My actual alert content, or an object if you want");
                         Message = "Registered Successfully";
                     }
                     else
                     {
-                        System.Diagnostics.Debug.WriteLine("Boom");
+                       // System.Diagnostics.Debug.WriteLine("Boom");
                         Message = "Retry later";
                     }
                 });

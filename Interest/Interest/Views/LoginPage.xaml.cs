@@ -1,5 +1,4 @@
-﻿using Interest.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,17 +10,16 @@ using Xamarin.Forms.Xaml;
 namespace Interest.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class RegisterPage : ContentPage
+    public partial class LoginPage : ContentPage
     {
-        public RegisterPage()
+        public LoginPage()
         {
             InitializeComponent();
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-           await Navigation.PushAsync(new LoginPage());
-           // MessagingCenter.Subscribe<RegisterViewModel>(this, "MyAlertName")
+            await Navigation.PushModalAsync(new InterestsPage());
         }
     }
 }

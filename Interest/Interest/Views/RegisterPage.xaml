@@ -2,13 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Interest.Views.RegisterPage"
-             xmlns:vm="clr-namespace:Interest.ViewModels">
+             xmlns:vm="clr-namespace:Interest.ViewModels"
+             Title="Register">
     
     <ContentPage.BindingContext>
         <vm:RegisterViewModel/>
     </ContentPage.BindingContext>
     <StackLayout Orientation="Vertical">
-        <Entry Text="{Binding Email}"
+        <Entry Text="{Binding Username}"
                Placeholder="email"/>
         <Entry Text="{Binding Password}"
                Placeholder="password"
@@ -18,8 +19,13 @@
                IsPassword="True"/>
 
         <Button Command="{Binding RegisterCommand}"
-                Text="Register"/>
+                Text="Register"
+                TextColor="White"
+                FontSize="30"
+                BackgroundColor="DeepPink" />
         <Label Text="{Binding Message}"/>
+
+        <Button Text="Go to Login Page" Clicked="Button_Clicked"/>
     </StackLayout>
     
 </ContentPage>
