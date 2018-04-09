@@ -52,11 +52,11 @@ namespace Interest.Helpers
         {
             get
             {
-                return AppSettings.GetValueOrDefault(AccessToken, "");
+                return AppSettings.GetValueOrDefault("AccessToken", "");
             }
             set
             {
-                AppSettings.AddOrUpdateValue(AccessToken, value);
+                AppSettings.AddOrUpdateValue("AccessToken", value);
             }
         }
 
