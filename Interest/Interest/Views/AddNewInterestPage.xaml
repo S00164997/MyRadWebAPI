@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:vm="clr-namespace:Interest.ViewModels"
+             x:Class="Interest.Views.AddNewInterestPage">
+    <ContentPage.BindingContext>
+        <vm:AddNewInterestViewModel/>
+    </ContentPage.BindingContext>
+    <StackLayout VerticalOptions="Center">
+
+        <Entry Text="{Binding Title}"/>
+
+
+        <Button Command="{Binding AddCommand}"
+                Text="Add Interest"/>
+
+        <!--<Button Text="Add new Idea"
+                Clicked="NavigateToAddNewIdea_Clicked"
+                TextColor="White"
+                FontSize="30"
+                BackgroundColor="DeepPink"/>-->
+    </StackLayout>
+</ContentPage>

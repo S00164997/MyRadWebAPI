@@ -6,23 +6,15 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Interest.Models;
 
 namespace Interest.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class InterestsPage : ContentPage
+    public partial class AddNewInterestPage : ContentPage
     {
-        public InterestsPage()
+        public AddNewInterestPage()
         {
             InitializeComponent();
-        }
-
-       
-
-        private async void NavigateToAddNewInterestAsync_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new AddNewInterestPage());
         }
     }
 }

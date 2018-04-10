@@ -61,17 +61,17 @@ namespace Interest.Helpers
         }
 
 
-        //public static DateTime AccessTokenExpirationDate
-        //{
-        //    get
-        //    {
-        //        return AppSettings.GetValueOrDefault<DateTime>("AccessTokenExpirationDate", DateTime.UtcNow);
-        //    }
-        //    set
-        //    {
-        //        AppSettings.AddOrUpdateValue<DateTime>("AccessTokenExpirationDate", value);
-        //    }
+        public static DateTime AccessTokenExpirationDate
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault<DateTime>("AccessTokenExpirationDate", DateTime.UtcNow);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue<DateTime>("AccessTokenExpirationDate", value);
+            }
 
-        //}
+        }
     }
 }

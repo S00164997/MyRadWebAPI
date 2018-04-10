@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:Interest.ViewModels"
-             x:Class="Interest.Views.InterestsPage">
+             x:Class="Interest.Views.InterestsPage"
+              Title="All Interests">
     <ContentPage.BindingContext>
         <vm:InterestViewModel/>
     </ContentPage.BindingContext>
@@ -11,7 +12,13 @@
         <!--<Entry Text="{Binding accessToken} "/>-->
         <Button Command="{Binding GetInterestsCommand}"
                 Text="Get All Interests"/>
-        
+
+        <Button Text="Add new Interest"
+                Clicked="NavigateToAddNewInterestAsync_Clicked"
+                TextColor="White"
+                FontSize="30"
+                BackgroundColor="DeepPink"/>
+
         <ListView ItemsSource="{Binding Interests}" 
                   HasUnevenRows="True">
             <ListView.ItemTemplate>

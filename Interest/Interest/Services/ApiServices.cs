@@ -110,6 +110,18 @@ namespace Interest.Services
             return interests;// + accessToken.ToString();
         }
 
+        public async Task PostIdeaAsync(Interest.Models.Interest interest, string accessToken)
+        {
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+            var json = JsonConvert.SerializeObject(interest);
+            HttpContent content = new StringContent(json);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            var response = await client.PostAsync("http://azuretestmc.azurewebsites.net/api/Interestsapi/Interests", content);
+        }
+
     }
 
 }
