@@ -21,7 +21,7 @@ namespace Interest.Services
     {
         public async Task<bool> RegisterAsync(
             string email, string password, string confirmPassword)
-        {
+        { 
             try
             { 
             var client = new HttpClient();
@@ -110,7 +110,7 @@ namespace Interest.Services
             return interests;// + accessToken.ToString();
         }
 
-        public async Task PostIdeaAsync(Interest.Models.Interest interest, string accessToken)
+        public async Task PostIdeaAsync(Models.Interest interest, string accessToken)
         {
             var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
@@ -119,7 +119,22 @@ namespace Interest.Services
             HttpContent content = new StringContent(json);
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-            var response = await client.PostAsync("http://azuretestmc.azurewebsites.net/api/Interestsapi/Interests", content);
+            var response = await client.PostAsync("http://azuretestmc.azurewebsites.net/api/Interests", content);
+        }
+
+        public async Task PutIdeaAsync(Models.Interest interest, string accessToken)
+        {
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new
+                AuthenticationHeaderValue("Bearer", accessToken);
+
+            var json = JsonConvert.SerializeObject(interest);
+            HttpContent content = new StringContent(json);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            var response = await client.PutAsync(
+                "http://azuretestmc.azurewebsites.net/api/Interests/" + interest.Id, content);
+            Debug.WriteLine(content);
         }
 
     }

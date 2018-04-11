@@ -24,5 +24,12 @@ namespace Interest.Views
         {
             await Navigation.PushAsync(new AddNewInterestPage());
         }
+
+        private async void IdeasListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var interest = e.Item as Models.Interest;
+           // Item.Interest as 
+            await Navigation.PushAsync(new EditInterestPage(interest));
+        }
     }
 }

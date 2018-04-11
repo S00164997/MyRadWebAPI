@@ -24,9 +24,8 @@ namespace Interest.ViewModels
                 {
                     var interest = new Models.Interest
                     {
-                        Title = "Blah",
-                        UserId = "ewfvifijvoei",
-                        Id = 3
+                        Title = Title
+                        
                     };
                     await _apiServices.PostIdeaAsync(interest, Settings.AccessToken);
                 });
