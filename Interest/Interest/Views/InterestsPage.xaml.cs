@@ -16,20 +16,33 @@ namespace Interest.Views
         public InterestsPage()
         {
             InitializeComponent();
+            
         }
 
-       
+
 
         private async void NavigateToAddNewInterestAsync_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AddNewInterestPage());
         }
 
-        private async void IdeasListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        private async void EditInterests(object sender, EventArgs e)
         {
-            var interest = e.Item as Models.Interest;
-           // Item.Interest as 
-            await Navigation.PushAsync(new EditInterestPage(interest));
+            await Navigation.PushAsync(new NewEditPage());
         }
+
+        async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem != null)
+            {
+                var selection = e.SelectedItem as Models.Interest;
+                
+               // await DisplayAlert("Alert", "You have selected: " + selection.Title, "Ok");
+               await Navigation.PushAsync(new GetNewsPage(selection.Title));
+            }
+        }
+
+      
+      
     }
 }

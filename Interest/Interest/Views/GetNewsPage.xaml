@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Interest.Views.GetNewsPage">
+    <ContentPage.Content>
+
+        
+        <ListView x:Name="lstnews" BackgroundColor="White" SeparatorColor="Gray">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+
+                    <ViewCell x:Name="cellOne">
+                        <StackLayout Orientation="Horizontal" >
+
+                            <!--<TapGestureRecognizer Tapped="OnTapped"/>-->
+                            <StackLayout Orientation="Vertical" Spacing="50" >
+
+                                <Label Text="{Binding Title}" Font="18"></Label>
+                                <Label Text="{Binding Description}" TextColor="Gray"></Label>
+                                <Label Text="{Binding Provider}" TextColor="Gray"></Label>
+                            </StackLayout>
+                            <Image Source="{Binding ThumbnailUrl}" HeightRequest="50" WidthRequest="50" HorizontalOptions="EndAndExpand"></Image>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

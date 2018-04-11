@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:vm="clr-namespace:Interest.ViewModels"
-             x:Class="Interest.Views.InterestsPage"
-              Title="All Interests">
+               xmlns:vm="clr-namespace:Interest.ViewModels"
+             x:Class="Interest.Views.NewEditPage">
+
     <ContentPage.BindingContext>
         <vm:InterestViewModel/>
     </ContentPage.BindingContext>
@@ -13,20 +13,8 @@
         <Button Command="{Binding GetInterestsCommand}"
                 Text="Get All Interests"/>
 
-        <Button Text="Add new Interest"
-                Clicked="NavigateToAddNewInterestAsync_Clicked"
-                TextColor="White"
-                FontSize="30"
-                BackgroundColor="DeepPink"/>
 
-        <Button Text="Edit Interests"
-                Clicked="EditInterests"
-                TextColor="White"
-                FontSize="30"
-                BackgroundColor="DeepPink"/>
-
-
-        <ListView BackgroundColor="White" ItemsSource="{Binding Interests}" ItemSelected="OnItemSelected">
+        <ListView BackgroundColor="White" ItemsSource="{Binding Interests}"  ItemTapped="IdeasListView_ItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell TextColor="Red" Text="{Binding Title}"/>

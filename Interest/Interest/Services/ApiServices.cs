@@ -12,7 +12,7 @@ using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 using Xamarin.Forms;
 using Interest.Helpers;
-
+//BOOOOOOOOOOOOOOOOOOOMMMMMMMMMMMMMMMM
 //"http://azuretestmc.azurewebsites.net/api/Account/Register"
 
 namespace Interest.Services
