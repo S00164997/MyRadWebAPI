@@ -86,7 +86,7 @@ namespace Interest.Services
              var accessToken = jwtDynamic.Value<string>("access_token");
 
             
-            //Settings.AccessTokenExpirationDate = accessTokenExpiration;
+            Settings.AccessTokenExpirationDate = accessTokenExpiration;
 
             Debug.WriteLine(accessTokenExpiration);
 
