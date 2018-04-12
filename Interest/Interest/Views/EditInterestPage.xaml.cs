@@ -22,7 +22,7 @@ namespace Interest.Views
 
             BindingContext = editInterestViewModel;
 
-            DisplayAlert("Alert", "Done", "Ok");
+           
 
             //var editInterestViewModel = BindingContext as EditInterestViewModel;
 

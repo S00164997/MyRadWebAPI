@@ -28,6 +28,7 @@ namespace Interest.ViewModels
                         
                     };
                     await _apiServices.PostIdeaAsync(interest, Settings.AccessToken);
+                    await Application.Current.MainPage.DisplayAlert("Alert", "Added", "OK");
                 });
             }
         }

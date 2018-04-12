@@ -24,6 +24,7 @@ namespace Interest.ViewModels
                 return new Command(async () =>
                 {
                     await _apiServices.PutIdeaAsync(Interest, Settings.AccessToken);
+                    await Application.Current.MainPage.DisplayAlert("Alert", "Edited", "OK");
                 });
             }
         }
