@@ -10,7 +10,7 @@
     </ContentPage.BindingContext>
     <StackLayout Orientation="Vertical">
         <Entry Text="{Binding Username}" Placeholder="Username" FontSize="30"/>
-        <Entry Text="{Binding Password}" IsPassword="True" Placeholder="Password" FontSize="30"/>
+        <Entry Text="{Binding Password}" x:Name="Password2"  IsPassword="True" Placeholder="Password" FontSize="30"/>
 
         <Button Command="{Binding LoginCommand}" Text="Sign in"
                 TextColor="White"

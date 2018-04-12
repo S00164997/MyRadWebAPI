@@ -4,8 +4,8 @@
              x:Class="Interest.Views.GetNewsPage">
     <ContentPage.Content>
 
-        
-        <ListView x:Name="lstnews" BackgroundColor="White" SeparatorColor="Gray">
+
+        <ListView x:Name="lstnews" BackgroundColor="White" SeparatorColor="Gray" ItemSelected="Boom">
             <ListView.ItemTemplate>
                 <DataTemplate>
 

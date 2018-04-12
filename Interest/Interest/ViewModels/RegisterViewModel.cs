@@ -43,11 +43,15 @@ namespace Interest.ViewModels
                        // System.Diagnostics.Debug.WriteLine("Here");
                         //MessagingCenter.Send(this, "MyAlertName", "My actual alert content, or an object if you want");
                         Message = "Registered Successfully";
+                        await Application.Current.MainPage.DisplayAlert("Alert", "You have successfully registered", "OK");
+
                     }
                     else
                     {
                        // System.Diagnostics.Debug.WriteLine("Boom");
                         Message = "Retry later";
+                        await Application.Current.MainPage.DisplayAlert("Alert", "Nope", "OK");
+
                     }
                 });
             }

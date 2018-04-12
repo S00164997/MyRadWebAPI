@@ -1,5 +1,6 @@
 ﻿using Interest.Helpers;
 using Interest.Services;
+using Interest.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,9 @@ namespace Interest.ViewModels
                     var accesstoken = await _apiServices.LoginAsync(Username, Password);
                     //MessagingCenter.Send("Notification", accesstoken, "No");
                      Settings.AccessToken = accesstoken;
-                  //  DisplayAlert("Alert", "Signed In", "Ok");
+
+                    await Application.Current.MainPage.DisplayAlert("Alert", "You have successfully logged in", "OK");
+                    
                 });
             }
         }

@@ -17,6 +17,8 @@ namespace Interest.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class GetNewsPage : ContentPage
     {
+       
+
         private string NewsSearchEndPoint = "https://api.cognitive.microsoft.com/bing/v7.0/news/search";
         public HttpClient BingNewsSearchClient
         {
@@ -41,6 +43,8 @@ namespace Interest.Views
             try
             {
                 lstnews.ItemsSource = await GetNewsSearchResults(query);
+                
+              
             }//lstautosug
             catch (HttpRequestException)
             {
@@ -49,10 +53,20 @@ namespace Interest.Views
 
         }
 
-       
+        async void Boom(object sender, SelectedItemChangedEventArgs e )
+        {
+
+            if (e.SelectedItem != null)
+            {
+                var selection = e.SelectedItem as NewsArticle;
+                Device.OpenUri(new Uri(selection.Url));
+            }
+          
+        }
 
 
-        public async Task<IEnumerable<NewsArticle>> GetNewsSearchResults(string query)
+
+            public async Task<IEnumerable<NewsArticle>> GetNewsSearchResults(string query)
         {
             
             int count = 4;//amount of news data displayed
@@ -76,7 +90,10 @@ namespace Interest.Views
                         Description = data.value[i].description,
                         ThumbnailUrl = data.value[i].image?.thumbnail?.contentUrl,
                         Provider = data.value[i].provider?[0].name
+
                     });
+
+                   
                 }
             }
 
