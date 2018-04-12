@@ -17,7 +17,10 @@
     <StackLayout>
         <!--<Entry Text="{Binding accessToken} "/>-->
         <Button Command="{Binding GetInterestsCommand}"
-                Text="Get All Interests"/>
+                Text="Get All Interests"
+                 TextColor="White"
+                FontSize="30"
+                BackgroundColor="DeepPink"/>
 
         <Button Text="Add new Interest"
                 Clicked="NavigateToAddNewInterestAsync_Clicked"
