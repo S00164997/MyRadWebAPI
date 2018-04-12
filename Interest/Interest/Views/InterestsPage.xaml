@@ -8,6 +8,12 @@
         <vm:InterestViewModel/>
     </ContentPage.BindingContext>
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Logout"
+                     Command="{Binding LogoutCommand}"
+                     Clicked="LogoutMenuItem_Clicked"
+                     Priority="1"/>
+    </ContentPage.ToolbarItems>
     <StackLayout>
         <!--<Entry Text="{Binding accessToken} "/>-->
         <Button Command="{Binding GetInterestsCommand}"

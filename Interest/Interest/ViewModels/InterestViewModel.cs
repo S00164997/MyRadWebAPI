@@ -40,22 +40,22 @@ namespace Interest.ViewModels
             }
         }
 
-        //public ICommand LogoutCommand
-        //{
-        //    get
-        //    {
-        //        return new Command(() =>
-        //        {
-        //            Settings.AccessToken = string.Empty;
-        //            Debug.WriteLine(Settings.Username);
-        //            Settings.Username = string.Empty;
-        //            Debug.WriteLine(Settings.Password);
-        //            Settings.Password = string.Empty;
+        public ICommand LogoutCommand
+        {
+            get
+            {
+                return new Command(() =>
+                {
+                    Settings.AccessToken = string.Empty;
+                    Debug.WriteLine(Settings.Username);
+                    Settings.Username = string.Empty;
+                    Debug.WriteLine(Settings.Password);
+                    Settings.Password = string.Empty;
 
-        //            // navigate to LoginPage
-        //        });
-        //    }
-        //}
+                    // navigate to LoginPage
+                });
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
