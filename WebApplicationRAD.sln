@@ -11,6 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interest", "Interest\Intere
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile", "Mobile", "{03D409B0-B7D1-452C-B79F-1E7BBEF2896D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VideoFolder", "VideoFolder", "{86819CE8-1499-4186-91C7-EC7ADCF0D983}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Downloads\S00164997video.webm = ..\..\..\Downloads\S00164997video.webm
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
